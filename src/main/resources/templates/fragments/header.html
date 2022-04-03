@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html
+    xmlns:th="http://www.thymeleaf.org"
+    xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
+>
+    <head th:fragment="head(title)">
+        <title th:text="${title}">title</title>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+
+        <link th:href="@{/css/bootstrap.min.css}" rel="stylesheet" />
+        <link th:href="@{/css/default.css}" rel="stylesheet" />
+        <!-- Include stylesheet -->
+        <link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
+
+        <script th:src="@{/js/bootstrap.bundle.min.js}" defer></script>
+        <script th:src="@{/js/masonry.pkgd.min.js}" defer></script>
+        <!-- Include the Quill library -->
+        <script src="https://cdn.quilljs.com/1.3.6/quill.js" defer></script>
+        <script src='https://cdn.rawgit.com/kensnyder/quill-image-resize-module/3411c9a7/image-resize.min.js' defer></script>
+        
+
+        <script th:src="@{/js/default.js}" defer></script>
+    </head>
+
+    <body>
+        <nav class="navbar navbar-expand-lg bg-dark navbar-dark" th:fragment="header">
+            <div class="container d-flex justify-items-center">
+                <a class="navbar-brand my-1" th:href="@{/}">LMFDS</a>
+                <button
+                    class="navbar-toggler d-lg-none"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#collapsibleNavId"
+                    aria-controls="collapsibleNavId"
+                    aria-expanded="false"
+                    aria-label="Toggle navigation"
+                >
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="collapsibleNavId">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link" th:href="@{/boards}">Board</a>
+                        </li>
+                    </ul>
+                    <ul class="navbar-nav ms-auto">
+                        <li sec:authorize="!isAuthenticated()" class="nav-item">
+                            <a class="nav-link" th:href="@{/auth/login}">Login</a>
+                        </li>
+                        <li sec:authorize="!isAuthenticated()" class="nav-item">
+                            <a class="nav-link" th:href="@{/auth/register}">Sign up</a>
+                        </li>
+                        <li class="nav-link" sec:authentication="name"></li>
+                        <li sec:authorize="isAuthenticated()">
+                            <a
+                                class="nav-link"
+                                href="#"
+                                onclick="document.querySelector('#form-logout').submit()"
+                                >Logout</a
+                            >
+                        </li>
+                    </ul>
+                    <form
+                        class="d-none"
+                        th:action="@{/logout}"
+                        method="post"
+                        id="form-logout"
+                    ></form>
+                </div>
+            </div>
+        </nav>
+    </body>
+</html>

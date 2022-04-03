@@ -1,0 +1,33 @@
+.content-body {
+    position: relative;
+}
+
+.content-body p {
+    margin-bottom: 0;
+}
+
+.content-body img {
+    max-width: 100%;
+}
+
+.ql-editor {
+    min-height: 10rem;
+}
+
+a.text-decoration-none:hover {
+    text-decoration: underline !important;
+}
+
+.pb-2\.5 {
+    padding-bottom: 0.75rem;
+}
+
+.alert.py-2 > .btn-close {
+    padding: 0.75rem;
+    background-size: 0.75em;
+}
+
+.table td {
+    padding-top: 0.75rem;
+    padding-bottom: 0.75rem;
+}

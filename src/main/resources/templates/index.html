@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html
+    xmlns:th="http://www.thymeleaf.org"
+    xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
+>
+    <head th:replace="fragments/header :: head('환영합니다')"></head>
+
+    <body>
+        <nav th:replace="fragments/header :: header"></nav>
+        <div class="container mt-4">랜딩 페이지</div>
+
+        <footer th:replace="fragments/footer :: footer"></footer>
+    </body>
+</html>

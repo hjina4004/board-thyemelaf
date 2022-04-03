@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html
+    xmlns:th="http://www.thymeleaf.org"
+    xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
+>
+    <body>
+        <div
+            th:fragment="modal-confirm(title, label_ok, label_cancel)"
+            class="modal fade"
+            id="modal-confirm"
+            aria-hidden="true"
+            aria-labelledby="modal-confirm-label"
+            tabindex="-1"
+        >
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header border-0 pb-2.5">
+                        <h5 class="modal-title" id="modal-confirm-label" th:text="${title}">Modal 1</h5>
+                        <button
+                            type="button"
+                            class="btn-close"
+                            data-bs-dismiss="modal"
+                            aria-label="Close"
+                        ></button>
+                    </div>
+                    <hr style="margin: 0 0.75rem;" />
+                    <div class="modal-body">
+                        Show a second modal and hide this one with the button below.
+                    </div>
+                    <div class="modal-footer border-0 pt-2">
+                        <button class="btn btn-sm px-4 btn-outline-secondary" data-bs-dismiss="modal" th:text="${label_cancel}">Cancel</button>
+                        <button class="btn btn-sm px-4 btn-outline-primary" data-bs-dismiss="modal" id="btn-ok" th:text="${label_ok}">Ok</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <footer th:fragment="footer" class="position-fixed w-100 bottom-0 end-0 py-3 bg-light">
+            <div class="container">
+                <span class="text-muted">Copyright 1999-2022 by Jina. All Rights Reserved.</span>
+            </div>
+        </footer>
+    </body>
+</html>
